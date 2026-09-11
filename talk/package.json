@@ -1,0 +1,14 @@
+{
+  "name": "princeton-bayes-2026-slides",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export --dark"
+  },
+  "dependencies": {
+    "@slidev/cli": "52.19.1",
+    "@slidev/theme-default": "latest",
+    "playwright-chromium": "^1.55.0"
+  }
+}

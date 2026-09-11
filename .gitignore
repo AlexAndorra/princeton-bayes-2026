@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.nc
+node_modules/
+talk/dist/
+agent/runs/*/workdir/
+.DS_Store
+
+# agent runs: keep transcripts, meta, reports, figures, analysis scripts — not the heavy inference blobs or venvs
+agent/runs/*/artifacts/**/*.zarr/
+agent/runs/*/artifacts/**/*.nc
+agent/runs/*/stderr.log
+agent/skill-rerun.log
+agent/drive.log
+sweep.log
+agent/runs/*/transcript.jsonl

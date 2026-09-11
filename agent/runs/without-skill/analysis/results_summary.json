@@ -1,0 +1,21 @@
+{
+  "n_divergences": 0,
+  "n_chains": 4,
+  "convergence_problems_detected": false,
+  "rhat_max_key_params": 1.0022838221877153,
+  "ess_bulk_min_key_params": 5377.013851390104,
+  "mu_slope_mean": -0.5356859653894012,
+  "mu_slope_hdi95": [
+    -0.6174399037622991,
+    -0.44542927587998576
+  ],
+  "p_hard_worse_than_standard": 1.0,
+  "mu_intercept_mean": 0.8062162697378954,
+  "main_diff_pp": -12.394921217785623,
+  "sensitivity_wide_prior_mu_slope_mean": -0.5350210905129175,
+  "sensitivity_wide_prior_mu_slope_hdi95": [
+    -0.626554564682802,
+    -0.4503902801020651
+  ],
+  "sensitivity_wide_prior_diff_pp": -12.382447104681578
+}

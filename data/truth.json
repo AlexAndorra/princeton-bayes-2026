@@ -1,0 +1,15 @@
+{
+  "mu": 0.8472978603872034,
+  "beta": -0.5,
+  "sigma_participant": 0.4,
+  "kappa": 42.0,
+  "sd_between_sessions": 0.0698836241921708,
+  "seed": 1277,
+  "n_participants": 40,
+  "n_sessions": 5,
+  "n_trials": 100,
+  "conditions": [
+    "standard",
+    "hard"
+  ]
+}

@@ -1,0 +1,49 @@
+# Dark-deck variant of the house style (intuitivebayes.mplstyle): light foreground on a
+# transparent ground so exported PNGs drop onto the Slidev dark slides. Palette unchanged.
+figure.facecolor:   none
+figure.edgecolor:   none
+figure.titlesize:   18.0
+figure.titleweight: bold
+
+font.family:    DejaVu Sans
+font.size:      16.0
+text.color:     E6E8EB
+
+lines.linewidth:       3
+lines.markersize:      7
+
+axes.facecolor:        none
+axes.edgecolor:        4A5058
+axes.linewidth:        1.0
+axes.grid:             True
+axes.grid.axis:        y
+axes.axisbelow:        True
+grid.color:            3A4048
+grid.linestyle:        -
+grid.linewidth:        0.8
+axes.spines.right:     False
+axes.spines.top:       False
+axes.titlesize:        20.0
+axes.titleweight:      bold
+axes.titlecolor:       F5F6F7
+axes.titlepad:         12.0
+axes.labelsize:        18.0
+axes.labelcolor:       E6E8EB
+
+xtick.labelsize:       15.0
+ytick.labelsize:       15.0
+xtick.color:           C7CBD1
+ytick.color:           C7CBD1
+xtick.top:             False
+ytick.right:           False
+
+# blue     yellow    green     lt-blue   red       slate     violet
+axes.prop_cycle: cycler(color=['0078ee','fbc02d','00eeb2','9bddfb','ff6651','709CC7','9b99f8'])
+
+legend.framealpha:  0.0
+legend.frameon:     False
+legend.fontsize:    14
+
+savefig.transparent:   True
+savefig.bbox:          tight
+savefig.dpi:           160

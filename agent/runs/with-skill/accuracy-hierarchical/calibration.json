@@ -1,0 +1,16 @@
+{
+  "variable": "n_correct",
+  "n_observations": 400,
+  "pit_method": "ppc_pit",
+  "assessment": {
+    "pit_ecdf_inside_bands": true,
+    "coverage_ecdf_inside_bands": true,
+    "well_calibrated": true,
+    "mean_coverage_deviation": 0.0426,
+    "calibration_diagnosis": "under-confident (predictions too uncertain)"
+  },
+  "plots": {
+    "pit_ecdf": "accuracy-hierarchical/pit_ecdf.png",
+    "coverage": "accuracy-hierarchical/pit_coverage.png"
+  }
+}
