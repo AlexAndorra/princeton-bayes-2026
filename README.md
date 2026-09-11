@@ -1,10 +1,9 @@
 # Is That Variability Real, or Just Noise?
 
 A Bayesian-workflow talk and hands-on workshop on repeated-measures accuracy data, built for
-Princeton Psychology (September 2026). Everything here is synthetic, so the true parameters are
-known and every model can be graded against them.
+[Princeton Psychology](https://psychology.princeton.edu/news-events/2026/alexandre-andorra-senior-data-scientist) (September 2026).
 
-**[▶ Open the workshop notebook in Colab](https://colab.research.google.com/github/AlexAndorra/princeton-bayes-2026/blob/main/workshop/notebooks/01_real_or_noise.ipynb)** — nothing to install, no Python assumed.
+**[▶ Open the workshop notebook in Colab](https://colab.research.google.com/github/AlexAndorra/princeton-bayes-2026/blob/main/workshop/notebooks/01_real_or_noise.ipynb)** — nothing to install.
 
 **[▶ The talk slides](https://alexandorra.github.io/princeton-bayes-2026/)**
 
@@ -27,20 +26,6 @@ you do it, and then hands the same data to an AI assistant for the room to criti
 | `scripts/` | `make_data.py` (regenerate the data), `seed_sweep.py` (are the pedagogical claims seed-robust?) |
 | `tests/` | Simulator, model, notebook-parity, story-holds, notebook-execution, and figure tests |
 
-## The workflow, and where it lives in R
-
-The whole arc — write the generative story, check what the priors imply, sample, check calibration and
-coverage, expand where it fails, compare without a threshold rule — transfers directly to `brms`:
-
-```r
-m2 <- brm(n_correct | trials(n_trials) ~ 1 + (1 | participant), family = beta_binomial(), data = train,
-          prior = prior(lognormal(3.85, 1.46), class = "phi"))
-m2_prior <- update(m2, sample_prior = "only")   # prior predictive
-pp_check(m2, type = "rootogram")                 # posterior predictive
-bayesplot::ppc_pit_ecdf(train$n_correct, posterior_predict(m2), prob = 0.9)   # calibration
-loo_compare(loo(m1), loo(m2))                    # comparison, as one input among several
-```
-
 ## Reproduce
 
 ```bash
@@ -51,4 +36,3 @@ uv run python talk/figures/make_figures.py
 ```
 
 The notebook is the source of truth: edit `workshop/notebooks/01_real_or_noise.ipynb` in Colab (File → Save a copy in GitHub) or Jupyter, and commit it with its outputs.
-
