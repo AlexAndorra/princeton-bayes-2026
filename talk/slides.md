@@ -457,15 +457,33 @@ The model sampled. That is not the same as the model being any good. Sampling is
 <img src="/fig07_ppc_dist.png" class="w-full mt-2 rounded-lg" />
 
 <div v-click class="mt-4 text-center text-lg text-gray-300">
-Left, one stable ability per person: its predictions are <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-indigo-500 font-bold">too narrow</span>. The data has more extreme sessions than it can produce.
+Bands = what each model predicts, dots = the data. <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-indigo-500 font-bold">Both look fine.</span> This plot never asked about sessions.
 </div>
 
 <!--
-Same forward simulation, now from the posterior: generate fake studies, thousands of times. A rootogram again: bands are what the model predicts, dots are what happened.
+Same forward simulation, now from the posterior: generate fake studies, thousands of times. A rootogram: for each number correct, the band is how often the model predicts it, the dot is how often it happened.
 
-Left panel, the session-blind model. In the tails, the dots sit outside the bands: more very bad and very good sessions than it can generate. Too confident. Right panel, hold that thought.
+Left, session-blind. Right, session-aware. Both look fine, and that is the lesson: a check on the overall distribution of scores cannot see a session-level problem. Every count has a handful of sessions, the bands are wide, and both models pass.
 
-This model converged cleanly and gave a tidy table. You'd never know from the table. You only know because you made it generate data and looked.
+So you ask the model about the thing you actually assumed.
+-->
+
+---
+
+## Ask about the assumption: how much do sessions move?
+
+<img src="/fig07b_ppc_spread.png" class="w-full mt-2 rounded-lg" />
+
+<div v-click class="mt-4 text-center text-lg text-gray-300">
+Same replications, one statistic: each participant's between-session spread. Dashed = the data. The session-blind model <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-indigo-500 font-bold">cannot produce it</span>.
+</div>
+
+<!--
+Same replicated studies, but now compute one number from each: the spread of a participant's accuracy across their sessions, median participant. The dashed line is that number in the real data.
+
+Left, the session-blind model: every replication it generates has about half the spread we observe. Not once does it produce what happened. Right, the session-aware model: the data sits comfortably inside.
+
+This is the posterior predictive check done well: pick the statistic that targets the assumption you doubted. And it says something specific: the sessions move more than one stable ability allows.
 -->
 
 ---
@@ -540,7 +558,7 @@ Same plot, session-aware model: <span class="bg-clip-text text-transparent bg-gr
 </div>
 
 <!--
-Coverage for the expanded model: on the line, if anything a hair cautious, the safe way to be wrong. On the rootogram's right side the dots sat inside the bands too. And it recovers the true between-session variability I planted.
+Coverage for the expanded model: on the line, if anything a hair cautious, the safe way to be wrong. The spread check passed too. And it recovers the true between-session variability I planted.
 
 Name the shape of what happened: we wrote a model, sampled it, made it generate data, it failed a measurable check, the failure pointed at a missing piece, we added it, the check passed. The failure was the most informative thing that happened.
 
@@ -566,7 +584,7 @@ layout: section
 <!--
 There is a number for "which predicts better": cross-validation, ELPD, and it strongly prefers the session-aware model.
 
-But that number is not the verdict. It agrees with the rootogram and the coverage plot, and the agreement is the evidence: three checks reading the data three ways, all saying the session level was missing.
+But that number is not the verdict. It agrees with the spread check and the coverage plot, and the agreement is the evidence: three checks reading the data three ways, all saying the session level was missing.
 
 The tempting move is a magic number: is the difference more than some multiple of its error? Resist it. Cross-validation asks which model predicts held-out data better, a different question from which is true, or which serves your purpose. One input, never an oracle.
 -->
@@ -687,6 +705,14 @@ Right, same model, same data, the workflow installed as a skill, a file it reads
 </div>
 </div>
 
+<div v-click class="flex items-center justify-center gap-4 mt-6">
+  <div class="bg-white p-1.5 rounded-lg border-2 border-emerald-500"><img src="/qr_baygent.png" class="w-20 h-20" /></div>
+  <div>
+    <div class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-indigo-500">The skill is open source</div>
+    <div class="text-xs text-gray-500 font-mono">github.com/Learning-Bayesian-Statistics/baygent-skills</div>
+  </div>
+</div>
+
 <!--
 Same model in both runs. What changed was the workflow, written down: the arc from a few slides ago, as a checklist. That's all a skill is.
 
@@ -731,13 +757,20 @@ class: text-center
 
 <div class="mt-4 text-lg text-gray-400">A loop you run with instruments, until the model is good enough for what <em>you</em> need.</div>
 
-<div class="grid grid-cols-3 gap-8 mt-10 w-full max-w-3xl mx-auto">
+<div class="grid grid-cols-4 gap-6 mt-10 w-full max-w-4xl mx-auto">
   <div class="flex flex-col items-center">
     <div class="bg-white p-2 rounded-xl shadow-lg border-2 border-emerald-500">
       <img src="/qr_repo.png" class="w-32 h-32" />
     </div>
     <span class="mt-4 font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-400">Slides, notebook & code</span>
-    <span class="text-xs text-gray-500 font-mono mt-1">github.com/AlexAndorra/princeton-bayes-2026</span>
+    <span class="text-xs text-gray-500 font-mono mt-1 text-center">github.com/AlexAndorra/princeton-bayes-2026</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <div class="bg-white p-2 rounded-xl shadow-lg border-2 border-teal-500">
+      <img src="/qr_baygent.png" class="w-32 h-32" />
+    </div>
+    <span class="mt-4 font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-teal-300">The skill</span>
+    <span class="text-xs text-gray-500 font-mono mt-1 text-center">github.com/Learning-Bayesian-Statistics/baygent-skills</span>
   </div>
   <div class="flex flex-col items-center">
     <div class="bg-white p-2 rounded-xl shadow-lg border-2 border-cyan-500">

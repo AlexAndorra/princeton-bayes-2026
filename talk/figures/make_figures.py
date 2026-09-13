@@ -44,6 +44,13 @@ def load():
     return sessions, truth
 
 
+def between_session_sd(counts, n_trials, group):
+    """Median over participant x condition of the SD of session accuracy. The obs axis is last."""
+    accuracy = np.asarray(counts) / n_trials
+    sds = np.stack([accuracy[..., group == g].std(axis=-1, ddof=1) for g in range(group.max() + 1)], axis=-1)
+    return np.median(sds, axis=-1)
+
+
 def two_model_tree(posteriors: dict, observed) -> az.DataTree:
     """One tree with a `model` dimension, so ArviZ draws both models side by side."""
     return az.from_dict(
@@ -221,6 +228,30 @@ def main():
         comparison, backend="matplotlib", figure_kwargs={"figsize": (12, 4.5), "sharex": True, "sharey": True}
     )
     save(plt.gcf(), a.out, "fig07_ppc_dist")
+
+    # ---- posterior predictive on the statistic the session assumption is about ----
+    group = pd.factorize(train["participant"].astype(str) + "/" + train["condition"])[0]
+    spread_tree = az.from_dict(
+        {
+            "posterior_predictive": {
+                name: idata.posterior_predictive["n_correct"].values for name, idata in posteriors.items()
+            },
+            "observed_data": {name: observed for name in posteriors},
+        },
+        dims={name: ["obs"] for name in posteriors},
+    )
+    pc = azp.plot_ppc_tstat(
+        spread_tree,
+        t_stat=lambda counts: between_session_sd(counts, train["n_trials"].to_numpy(), group),
+        backend="matplotlib",
+        figure_kwargs={"figsize": (12, 4.5), "sharex": True},
+    )
+    azp.add_lines(
+        pc, float(between_session_sd(observed, train["n_trials"].to_numpy(), group)), color=TRUTHC, linestyle="--"
+    )
+    for name, plot in pc.viz["plot"].data_vars.items():
+        plot.item().set(title=name, xlabel="between-session SD of accuracy (median participant)")
+    save(plt.gcf(), a.out, "fig07b_ppc_spread")
 
     # ---- coverage and PIT, one model per figure ----
     for tag, name, kwargs in [
