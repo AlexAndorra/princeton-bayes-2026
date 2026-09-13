@@ -72,15 +72,14 @@ Everything today is these three pieces: we'll write the story, look at what the 
 
 ## The same formula, with a touch of humour
 
-<div class="flex justify-center mt-6">
+<div class="mx-auto mt-2 w-190 aspect-video rounded-lg overflow-hidden border border-gray-700 shadow-lg">
 <iframe
-  width="880" height="495"
+  class="w-full h-full"
   src="https://www.youtube.com/embed/8-s0MAU5HHU?start=93&end=112&rel=0&modestbranding=1"
   title="Bayes' theorem, illustrated"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
-  class="rounded-lg shadow-lg border border-gray-700"
 ></iframe>
 </div>
 
