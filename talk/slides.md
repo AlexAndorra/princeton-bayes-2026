@@ -22,7 +22,7 @@ fonts:
 <div class="pt-12 text-xl">Alexandre Andorra</div>
 
 <div class="pt-4 font-light text-gray-400">
-Bayesian data scientist · PyMC core contributor · host of <em>Learning Bayesian Statistics</em>
+<a href="https://alexandorra.github.io/" target="_blank" class="text-gray-300 border-b border-gray-600 hover:text-white">Bayesian data scientist</a> · <a href="https://www.pymc.io/welcome.html" target="_blank" class="text-gray-300 border-b border-gray-600 hover:text-white">PyMC</a> core contributor · host of <a href="https://learnbayesstats.com/" target="_blank" class="text-gray-300 border-b border-gray-600 hover:text-white"><em>Learning Bayesian Statistics</em></a>
 </div>
 
 <div class="pt-6 font-light text-gray-500">Princeton Psychology · September 2026</div>
@@ -83,7 +83,7 @@ Everything today is these three pieces: we'll write the story, look at what the 
 ></iframe>
 </div>
 
-<div class="mt-4 text-center text-sm text-gray-500 font-mono">youtu.be/8-s0MAU5HHU · 1:33 to 1:52</div>
+<div class="mt-4 text-center text-sm text-gray-500 font-mono">youtu.be/8-s0MAU5HHU · 1:33 to 1:56</div>
 
 <!--
 Press play. Twenty seconds: prior, evidence, update. That's the whole formula in one joke.
