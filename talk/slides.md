@@ -252,7 +252,7 @@ We start where the story starts: before any data.
 
 ---
 
-## The one assumption you can inspect for free
+## The assumption you can inspect for free
 
 <div class="flex items-center justify-center gap-6 mt-14">
   <div v-click class="bg-gray-800/50 p-6 rounded-lg border-t-4 border-indigo-500 w-56 text-center">
@@ -457,7 +457,7 @@ The model sampled. That is not the same as the model being any good. Sampling is
 <img src="/fig07_ppc_dist.png" class="h-82 mx-auto mt-1 rounded-lg" />
 
 <div v-click class="mt-4 text-center text-lg text-gray-300">
-Bands = what each model predicts, dots = the data. <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-indigo-500 font-bold">Both look fine.</span> This plot never asked about sessions.
+Bands = what each model predicts, dots = the data. <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-indigo-500 font-bold">Both look fine.</span>.
 </div>
 
 <!--
