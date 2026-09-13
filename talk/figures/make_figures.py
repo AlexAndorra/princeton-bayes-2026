@@ -250,7 +250,7 @@ def main():
         pc, float(between_session_sd(observed, train["n_trials"].to_numpy(), group)), color=TRUTHC, linestyle="--"
     )
     for name, plot in pc.viz["plot"].data_vars.items():
-        plot.item().set(title=name, xlabel="between-session SD of accuracy (median participant)")
+        plot.item().set(title=name, xlabel="between-session SD of accuracy")
     save(plt.gcf(), a.out, "fig07b_ppc_spread")
 
     # ---- coverage and PIT, one model per figure ----
