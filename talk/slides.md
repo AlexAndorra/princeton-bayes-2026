@@ -69,6 +69,28 @@ Everything today is these three pieces: we'll write the story, look at what the 
 -->
 
 ---
+
+## The same formula, with a touch of humour
+
+<div class="flex justify-center mt-6">
+<iframe
+  width="880" height="495"
+  src="https://www.youtube.com/embed/8-s0MAU5HHU?start=93&end=112&rel=0&modestbranding=1"
+  title="Bayes' theorem, illustrated"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  class="rounded-lg shadow-lg border border-gray-700"
+></iframe>
+</div>
+
+<div class="mt-4 text-center text-sm text-gray-500 font-mono">youtu.be/8-s0MAU5HHU · 1:33 to 1:52</div>
+
+<!--
+Press play. Twenty seconds: prior, evidence, update. That's the whole formula in one joke.
+-->
+
+---
 layout: section
 ---
 
