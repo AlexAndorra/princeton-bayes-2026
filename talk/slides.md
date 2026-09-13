@@ -454,7 +454,7 @@ The model sampled. That is not the same as the model being any good. Sampling is
 
 ## Simulate replications, compare to what you saw
 
-<img src="/fig07_ppc_dist.png" class="w-full mt-2 rounded-lg" />
+<img src="/fig07_ppc_dist.png" class="h-82 mx-auto mt-1 rounded-lg" />
 
 <div v-click class="mt-4 text-center text-lg text-gray-300">
 Bands = what each model predicts, dots = the data. <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-indigo-500 font-bold">Both look fine.</span> This plot never asked about sessions.
@@ -472,7 +472,7 @@ So you ask the model about the thing you actually assumed.
 
 ## Ask about the assumption: how much do sessions move?
 
-<img src="/fig07b_ppc_spread.png" class="w-full mt-2 rounded-lg" />
+<img src="/fig07b_ppc_spread.png" class="h-82 mx-auto mt-1 rounded-lg" />
 
 <div v-click class="mt-4 text-center text-lg text-gray-300">
 Same replications, one statistic: each participant's between-session spread. Dashed = the data. The session-blind model <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-indigo-500 font-bold">cannot produce it</span>.
@@ -757,12 +757,12 @@ class: text-center
 
 <div class="mt-4 text-lg text-gray-400">A loop you run with instruments, until the model is good enough for what <em>you</em> need.</div>
 
-<div class="grid grid-cols-4 gap-6 mt-10 w-full max-w-4xl mx-auto">
+<div class="grid grid-cols-4 gap-6 mt-10 w-full max-w-5xl mx-auto">
   <div class="flex flex-col items-center">
     <div class="bg-white p-2 rounded-xl shadow-lg border-2 border-emerald-500">
       <img src="/qr_repo.png" class="w-32 h-32" />
     </div>
-    <span class="mt-4 font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-400">Slides, notebook & code</span>
+    <span class="mt-4 font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-400">Slides & code</span>
     <span class="text-xs text-gray-500 font-mono mt-1 text-center">github.com/AlexAndorra/princeton-bayes-2026</span>
   </div>
   <div class="flex flex-col items-center">
