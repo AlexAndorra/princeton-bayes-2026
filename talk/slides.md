@@ -70,12 +70,12 @@ Everything today is these three pieces: we'll write the story, look at what the 
 
 ---
 
-## The same formula, with a touch of humour
+## The same formula, illustrated
 
 <div class="mx-auto mt-2 w-190 aspect-video rounded-lg overflow-hidden border border-gray-700 shadow-lg">
 <iframe
   class="w-full h-full"
-  src="https://www.youtube.com/embed/8-s0MAU5HHU?start=93&end=112&rel=0&modestbranding=1"
+  src="https://www.youtube.com/embed/8-s0MAU5HHU?start=93&end=116&rel=0&modestbranding=1"
   title="Bayes' theorem, illustrated"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
