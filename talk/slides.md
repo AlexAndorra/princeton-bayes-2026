@@ -352,7 +352,7 @@ So the random effect automatically weights each participant's own data against t
 <img src="/fig06_ci_vs_credible.png" class="h-90 mx-auto" />
 
 <div v-click class="mt-2 text-lg text-gray-300">
-Often close in numbers. But one asks <span class="grad">"where is the truth, given this data?"</span> — and it makes a <span class="text-white">probability claim you can test</span>. (A confidence interval's coverage is testable too — the coverage plots that follow are exactly that test.)
+Often close in numbers, but one asks <span class="grad">"where is the truth, given this data?".</span>
 </div>
 
 <!--
@@ -382,7 +382,7 @@ The model sampled. That is not the same as the model being any good. Sampling is
 <img src="/fig07_ppc_dist.png" class="w-full mt-2" />
 
 <div v-click class="mt-3 text-lg text-gray-300">
-The sampled model can generate fake studies (bands = its predictions, dots = your data). On the left, the model that assumes one stable ability per person. Its predictions are <span class="grad">too narrow</span> — the real data has more extreme sessions than it can produce.
+The sampled model can generate fake studies. On the left, the model that assumes one stable ability per person. Its predictions are <span class="grad">too narrow</span> — the real data has more extreme sessions than it can produce.
 </div>
 
 <!--
@@ -400,7 +400,7 @@ Right panel — hold that thought, I'll come back to it. The move here is the im
 <img src="/fig08_coverage_binomial.png" class="h-90 mx-auto" />
 
 <div v-click class="mt-2 text-lg text-gray-300">
-Coverage, at every interval width at once. This model sits <span class="text-white">below the line</span> everywhere: its 90% intervals hold about 70% of sessions, its 50% about a third. <span class="grad">Over-confident</span>, with a receipt.
+Coverage, at every interval width at once. This model sits <span class="text-white">below the line</span> everywhere: it's <span class="grad">over-confident</span>.
 </div>
 
 <!--
@@ -492,10 +492,6 @@ layout: section
 
 <img src="/fig11_compare_panel.png" class="w-full mt-2" />
 
-<div v-click class="mt-4 text-lg text-gray-300">
-Cross-validation says the session-aware model predicts far better. Good. But the rootogram and the coverage plot said the same thing <span class="grad">for a reason you can point at</span> — that's the evidence. The number is a summary of it.
-</div>
-
 <!--
 There is a number for "which model predicts better" — it's cross-validation, ELPD, and here it strongly prefers the session-aware model. The bar is the difference; it's far from zero and far from its own error bar.
 
@@ -566,22 +562,22 @@ layout: section
 
 ---
 
-## Same data, a student's prompt
+## Same data, with a classic prompt
 
 <div class="card mt-8 text-lg italic">
 "I ran a study: 40 participants, two conditions, five sessions, 100 trials each. Compute each participant's accuracy with an interval, test whether the conditions differ, and write me a short report for lab meeting."
 </div>
 
 <div v-click class="mt-8 text-xl text-gray-300">
-The prompt a second-year would type. The assistant answered the question <span class="grad">as asked</span> — which is exactly the problem, and exactly what a rushed human does too.
+The assistant answered the question <span class="grad">as asked</span> — which is exactly the problem, and exactly what a rushed human does too.
 </div>
 
 <!--
-I gave a coding assistant — Claude Code, running on a mid-size model — the exact synthetic dataset from this talk, with the prompt a second-year student would actually type. Not "do a rigorous Bayesian workflow." Just: compute accuracies, test the conditions, write it up for lab meeting.
+I gave a coding assistant — Claude Code, running on a mid-size model — the exact synthetic dataset from this talk, with the prompt most people would type. Not "do a rigorous Bayesian workflow." Just: compute accuracies, test the conditions, write it up for lab meeting.
 
-And it did that. Competently. It answered the question exactly as asked. Which is the whole problem — because "the question as asked" quietly skips most of the workflow you just watched. It answered the literal question and stopped, which is precisely what a capable, rushed human does at eleven pm before lab meeting.
+And it did that. Competently. It answered the question exactly as asked. Which is the whole problem — because "the question as asked" skips most of the workflow you just watched. It answered the literal question and stopped, which is precisely what a capable, rushed human does at 11pm before lab meeting.
 
-I want to show you the before and after, because the fix is interesting and it's not "use a bigger model."
+I want to show you the before and after, because the fix is interesting and it's not "use a bigger model".
 -->
 
 ---
@@ -593,7 +589,7 @@ I want to show you the before and after, because the fix is interesting and it's
 <div class="tag">on its own</div>
 <ul class="mt-2 space-y-1 text-gray-300">
 <li>built a plain binomial mixed model — one ability per person, sessions pooled as trials</li>
-<li>ran a prior predictive check, a prior-sensitivity analysis, reported partial-pooled estimates with intervals and honest caveats</li>
+<li>ran a prior predictive check, a prior-sensitivity analysis, reported partial-pooled estimates with intervals and caveats</li>
 <li class="text-red-300">never modelled the session-to-session wobble</li>
 <li class="text-red-300">checked the model by eye (an ECDF overlay), not calibration</li>
 </ul>
@@ -608,16 +604,6 @@ I want to show you the before and after, because the fix is interesting and it's
 </div>
 </div>
 
-<div v-click class="mt-6 text-lg text-gray-400">
-No scores, no leaderboard. Same model, same data you now understand — just what each run did.
-</div>
-
-<!--
-Left, on its own. It built a plain binomial mixed model — one ability per participant, sessions pooled together as more trials. And it was genuinely careful: it ran a prior predictive check, it ran a prior-sensitivity analysis, it reported partially-pooled estimates with credible intervals, it wrote sensible caveats. If a student handed me this, I'd be pleased. But it never modelled the session-to-session wobble — the exact thing this whole talk is about — and it checked its predictions by eye, with an ECDF overlay, never their calibration. It answered the question as asked, well, and stopped.
-
-Right, same model, same data, now with the workflow installed as a skill — a file it reads before it starts. It measured the overdispersion, saw the sessions vary about two-and-a-half times more than binomial noise allows, and reached for a session-level term. That term turned out unstable, it noticed, and it switched to a beta-binomial — the model we built together twenty minutes ago. Then it ran the coverage and PIT check and cross-validation. And here's the part I didn't expect, which is the next slide.
--->
-
 ---
 
 ## What it took
@@ -631,7 +617,7 @@ Right, same model, same data, now with the workflow installed as a skill — a f
 </div>
 <div v-click class="card">
 <div class="tag">surprise 2</div>
-<div class="mt-2 text-gray-300">With the workflow, it ran its own adversarial review before calling the job done — and that review caught its <em>first write-up understating the diagnostics it had just computed</em>. It accepted the criticism, rebuilt to the beta-binomial, and re-checked. It caught itself.</div>
+<div class="mt-2 text-gray-300">With the workflow, it ran its own adversarial review before calling the job done — and that review caught its <em>first write-up understating the diagnostics it had just computed</em>. It accepted the criticism, rebuilt to the beta-binomial, and re-checked.</div>
 </div>
 </div>
 
@@ -651,18 +637,10 @@ Second, and this is the real one. With the workflow, before it called the job do
 The workshop picks up right here, hands-on.
 </div>
 
-<div class="mt-8 text-xl text-gray-300">
-You build both models on this data, watch the checks catch the session-blind one, and <span class="grad">critique the AI's run yourselves</span> — no coding required, just reading plots and asking the questions it didn't.
-</div>
-
-<div class="mt-10 text-lg text-gray-400">Everything runs in the browser via Google Colab. Nothing to install. R users welcome — it all transfers to brms.</div>
-
 <!--
-This afternoon we do it with your hands on it. Everything runs in Google Colab, in the browser, nothing to install, and no Python assumed — the notebooks are pre-written and your job is to run them and change things.
+You build both models on this data, watch the checks catch the session-blind one, and critique the AI's run yourselves — no coding required, just reading plots and asking the questions it didn't.
 
-You'll build both models on this same data, watch the session-blind one fail the coverage check in real time, and then — this is the part I'm most curious about — you'll critique the AI assistant's run yourselves. I'll play back what it did, and the room's job is to catch what it got wrong. Not at the code level — at the level of the questions: did it check what it should have, and where would you have pushed back. No coding required for that part; if you can read a coverage plot, and after this talk you can, you can do it.
-
-R users, you are genuinely welcome — every check I showed has a brms and bayesplot equivalent, and they're on the next slide.
+Everything runs in the browser via Google Colab. Nothing to install. R users welcome — it all transfers to brms.
 -->
 
 ---
@@ -674,16 +652,12 @@ class: text-center
 
 <div class="mt-6 text-xl text-gray-300">The workflow is a loop you run with instruments,<br>until the model is good enough for what <em>you</em> need.</div>
 
-<div class="mt-10 text-gray-400 text-sm font-mono">github.com/AlexAndorra/princeton-bayes-2026 &middot; learnbayesstats.com</div>
-
-<div class="mt-8 text-sm text-gray-500">
-R: brms <span class="font-mono">beta_binomial()</span> &middot; <span class="font-mono">sample_prior="only"</span> &middot; <span class="font-mono">pp_check(type="rootogram")</span> &middot; bayesplot <span class="font-mono">ppc_pit_ecdf</span> &middot; <span class="font-mono">loo_compare()</span>
-</div>
+<div class="mt-10 text-gray-400 text-sm font-mono">github.com/AlexAndorra/princeton-bayes-2026 &middot; learnbayesstats.com &middot; alexandorra.github.io </div>
 
 <!--
-That's the talk. The one sentence to keep: the Bayesian workflow isn't a test you pass, it's a loop you run with honest instruments until the model is good enough for what you actually need — and you're the one who defines enough.
+That's the talk. The one sentence to keep: the Bayesian workflow isn't a test you pass, it's a loop you run with  instruments until the model is good enough for what you actually need — and you're the one who defines enough.
 
 Everything is in the repo — the slides, the data, the notebook, and the AI runs, transcripts and all. The podcast is where I argue about this stuff every couple of weeks with people who know more than I do.
 
-And for the R users, the bottom line is your Rosetta stone: prior predictive is sample-prior-only, the rootogram and calibration are pp-check and ppc-pit-ecdf, comparison is loo-compare. Same workflow, same instruments, your language. I'd love to take questions — and to see you this afternoon.
+Thank you for your attention. I'd love to take questions — and to see you this afternoon.
 -->
