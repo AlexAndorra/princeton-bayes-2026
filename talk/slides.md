@@ -90,6 +90,20 @@ Press play. Twenty seconds: prior, evidence, update. That's the whole formula in
 -->
 
 ---
+
+## The same formula, illustrated (local copy)
+
+<div class="mx-auto mt-2 w-190 aspect-video rounded-lg overflow-hidden border border-gray-700 shadow-lg bg-black">
+<video class="w-full h-full" controls preload="auto" src="/bayes_clip.mp4"></video>
+</div>
+
+<div class="mt-4 text-center text-sm text-gray-500 font-mono">the same clip, 1:35 to 1:55, served from the deck itself</div>
+
+<!--
+Backup of the previous slide with no internet needed. Press play.
+-->
+
+---
 layout: section
 ---
 
